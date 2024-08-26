@@ -19,18 +19,19 @@
     "forceConsistentCasingInFileNames": false,
     "isolatedModules": true,
     "noEmit": true,
-    "noFallthroughCasesInSwitch": true,
-
-  "compilerOptions": {
-    // ... autres options
+    "noFallthroughCasesInSwitch": true
   },
   "include": [
-    "src/**/*"
-  ]
-}
-
-  },
-  "include": ["./index.d.ts", "src", "babel.config.js", "**/*.test.ts", "**/*.test.tsx"],
-  "exclude": ["node_modules", "vendor", "public"],
+    "src/**/*",
+    "./index.d.ts",
+    "babel.config.js",
+    "**/*.test.ts",
+    "**/*.test.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "vendor",
+    "public"
+  ],
   "compileOnSave": true
 }
