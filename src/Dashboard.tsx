@@ -77,22 +77,23 @@ function App() {
 
   const isAppLoading = useAppSelector(state => state.app.loading);
 
- const initTronWeb = async () => {
-  if (window.tronWeb && window.tronWeb.ready) {
-    setConnected(true);
-    setAddress(window.tronWeb.defaultAddress.base58);
-    console.log("Connected to TronLink, address:", window.tronWeb.defaultAddress.base58);
-    loadDetails("account", window.tronWeb);
-  } else {
-    console.error("TronLink is not installed or connected.");
-    alert("Please install TronLink to use this DApp.");
-  }
-};
-
+  const initTronWeb = async () => {
+    if (window.tronWeb && window.tronWeb.ready) {
+      setConnected(true);
+      setAddress(window.tronWeb.defaultAddress.base58);
+      console.log("Connected to TronLink, address:", window.tronWeb.defaultAddress.base58);
+      loadDetails("account", window.tronWeb);
+    } else {
+      console.error("TronLink is not installed or connected.");
+      alert("Please install TronLink to use this DApp.");
+    }
+  };
 
   async function loadDetails(whichDetails: string, tronWeb) {
     if (connected) {
-      
+      if (whichDetails === "app") {
+        dispatch(loadAppDetails({ provider: tronWeb }));
+      }
 
       if (whichDetails === "account" && address) {
         dispatch(loadAccountDetails({ address, provider: tronWeb }));
