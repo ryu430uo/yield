@@ -16,8 +16,34 @@ function ConnectMenu() {
     return 0;
   });
 
+const connectTronLink = async () => {
+  // Vérifiez la disponibilité de TronLink
+  if (typeof window.tronWeb !== 'undefined') {
+    if (window.tronWeb.ready) {
+      try {
+        const tronWeb = window.tronWeb;
+        const address = tronWeb.defaultAddress.base58;
+        console.log("Connected to TronLink with address:", address);
+
+        // Mise à jour de l'état
+        setConnected(true);
+        setButtonText("Wallet Connected");
+      } catch (error) {
+        console.error("Failed to connect to TronLink:", error);
+      }
+    } else {
+      console.error("TronLink is not ready.");
+      alert("TronLink is not ready. Please wait a moment and try again.");
+    }
+  } else {
+    console.error("TronLink is not installed.");
+    alert("Please install TronLink to use this DApp.");
+  }
+};
+
+
   let buttonText = "Connect Wallet";
-  let clickFunc = () => {};
+  let clickFunc = connectTronLink;
 
   const handleClick = event => {
     setAnchorEl(anchorEl ? null : event.currentTarget);

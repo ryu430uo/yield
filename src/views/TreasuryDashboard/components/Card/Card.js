@@ -31,7 +31,7 @@ export const PriceCard = () => {
     return state.app && state.app.price_24hr_change;
   });
   return (
-    <Card className="card">
+    <Card className="cards">
       <Card.Percent>{!isAppLoading && marketPrice_24hr_change}</Card.Percent>
       <Card.Title>YIELD Price</Card.Title>
       <Card.Value>{!isAppLoading && formatCurrency(marketPrice, 4)}</Card.Value>
@@ -48,7 +48,7 @@ export const RFVOfTreasuryAssetsCard = () => {
   });
   const pastRFV = 499301.62;
   return (
-    <Card className="card">
+    <Card className="cards">
       <Card.Percent>{!isAppLoading && (rfv - pastRFV) / pastRFV}</Card.Percent>
       <Card.Title>Risk Free Value Market Value</Card.Title>
       <Card.Value>{!isAppLoading && formatCurrency(rfv, 2)}</Card.Value>
@@ -66,7 +66,7 @@ export const TotalLiquidityCard = () => {
   const pastValue = 2397215.48;
 
   return (
-    <Card className="card">
+    <Card className="cards">
       <Card.Percent>{!isAppLoading && (totalLiquidity - pastValue) / pastValue}</Card.Percent>
       <Card.Title>DAI Liquidity Value</Card.Title>
       <Card.Value>{!isAppLoading && formatCurrency(totalLiquidity, 2)}</Card.Value>
@@ -83,7 +83,7 @@ export const MarketValueCard = () => {
   });
   const pastValue = 728135.06;
   return (
-    <Card className="card">
+    <Card className="cards">
       <Card.Percent>{!isAppLoading && (treasuryMarketValue - pastValue) / pastValue}</Card.Percent>
       <Card.Title>Market Value Of Treasury Assets</Card.Title>
       <Card.Value>${!isAppLoading && formatNumber(treasuryMarketValue, 2)}</Card.Value>

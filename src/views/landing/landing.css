@@ -120,6 +120,16 @@ body {
 }
 
 .card {
+    
+    height: 12rem;
+    width: 20rem;
+    background-color: #50626517;
+    border-radius: 15px 15px 15px 15px;
+    padding: 25px 35px 35px 35px;
+}
+
+.cards {
+    
     margin-left: 23%;
     height: 12rem;
     width: 20rem;
